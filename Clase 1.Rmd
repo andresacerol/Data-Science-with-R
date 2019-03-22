@@ -1,0 +1,104 @@
+---
+title: "IntroducciÃ³n a Data Science con R"
+output:
+  pdf_document: default
+  html_document: default
+---
+* Andrés Esteban Acero, PhD (c) (andres.acerol@usa.edu.co)
+
+Profesor del programa de Ingeniería Industrial, Universidad Sergio Arboleda.
+Candidato a doctor en Ingeniería de la Universidad de los Andes.
+
+## Sesión 1: Introducción a R
+
+**R** es un entorno y lenguaje de programación con un enfoque al análisis estadístico. A través de este curso veremos cuáles son las funcionalidades y herramientas con las cuales podrás desarrollar tareas tan sencillas como sumas y restas hasta modelos de analítica de datos que usan compañías como Airbnb, Uber o Twitter. 
+
+En este curso haremos una introducción a los conceptos básicos para el manejo de datos y el desarrollo de análisis estadísticos básicos. Así pues, ¡empecemos!
+
+### Bloques básicos de programación en R
+
+En su forma más sencilla, R puede ser utilizado como una calculadora interactiva.
+
+```{r}
+5+7
+```
+
+R simplemente imprime el resultado 12 por defecto. Sin embargo, R es un lenguaje de programación y, en ocasiones, la utilizamos porque queremos automatizar procesos o evitar repeticiones innecesarias. 
+
+En este caso, queremos usar este resultado más adelante. En lugar de volver a escribir todo el código, crearemos una **variable** que guarde el resultado. La expresión que utilizaremos para esto es `<-`.
+
+```{r}
+x <- 5 + 7
+```
+
+Notarán que R no imprime el resultado en este momento. Cuando se asigna información, R asume que no necesita mostrar el resultado. Para ver el resultado, solamente hay que nombrar la variable.
+```{r}
+x
+```
+
+Con R puedes realizar la mayoría de las operaciones básicas. Estas expresiones van a depender del tipo de datos que utilicemos, lo cual lo veremos a lo largo de esta sesión. Cualquier objeto que contenga datos en R se llama estructura de datos y la primera que veremos serán los vectores numéricos. 
+
+La forma más sencilla de crear vectores es con la función `c()` que significa _concatenar_ o _combinar_. Probemos unir las expresiones `x+3, 5, 23` y asignarlo a la variable z
+
+```{r}
+z <- c (x + 3, 5, 23)
+```
+
+Los vectores numéricos, como en la primera expresión, tambien pueden incluir expresiones y podemos realizar operaciones con ellas. Probemos multiplicar el vector por 2 y sumarle 100.
+
+```{r}
+z*2 + 100
+```
+
+Como pueden ver, R aplicó las operaciones a cada elemento del vector. otras operaciones disponibles son `+`, `-`, `/`, and `^`. Para realizar una raíz cuadrada, use la función sqrt(). Probemos la raíz cuadrada de z -1 y asignarlo a la variable rc_z
+
+```{r}
+rc_z <- sqrt(z-1)
+rc_z
+```
+
+¿Y qué pasa si dividimos vectores entre si? Probemos que pasa si dividimos z entre su raíz cuadrada.
+
+```{r}
+z/rc_z
+```
+
+En efecto, divide el valor de cada elemento de z por el de la misma posición. ¿ Y qué pasa si son de diferente longitud? **Recicla los elementos!** Probemos un ejemplo.
+
+```{r}
+a <- c (1, 2, 3, 4)
+b <- c (0, 10)
+c <- a + b
+c
+```
+
+Probemos otro ejemplo:
+
+```{r}
+a <- c (1, 2, 3, 4)
+b <- c (0, 10, 100)
+c <- a + b
+c
+```
+En el caso de que no sean de igual longitud, el sistema sacará una alerta. Finalmente, si queremos hacer operaciones con los elementos dentro de un vector. Por ejemplo, podemos sumar sus elementos o contar sus elementos. Veamos un ejemplo:
+
+```{r}
+sum(a)
+length(a)
+```
+
+Otras funciones que podrían ser útiles son `min(), max(), mean(), median(), unique()` y `sort()` 
+
+**EJERCICIO**
+Usted ha sido escogido por el director del área de producción de su compañía para realizar un análisis de la demanda mensual de la empresa y realizar una estimación de las variaciones de la demanda, de acuerdo con la información del área de mercadeo. La información que posee es la siguiente:
+
+1. La demanda del mes 1 es de 250 unidades y cada mes aumenta en 15% el número de unidades.
+2. De acuerdo con las estimaciones del área de mercadeo, existen tres escenarios posibles:
+  - Duplicar la producción actual 
+  - Tener un aumento trimestral de 0, 50 y 100 unidades a lo largo del año
+  - La demanda aumentará en 1,8 más 25 unidades mensuales
+  
+¿En cuál de los escenarios presentados se venden, en promedio, más unidades al final del año?
+
+
+
